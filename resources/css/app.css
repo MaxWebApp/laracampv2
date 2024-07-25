@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.note_btn{
+    color: darkcyan;
+}
+.note_link{
+    color: chocolate;
+}
