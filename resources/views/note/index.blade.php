@@ -1,5 +1,13 @@
 <x-app-layout>
     <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        @session('message')
+            <div class="success-message">
+                {{ session('message') }}
+            </div>
+        @endsession
+
+        <x-custom-button class="mt-4">{{ __('新增筆記') }}</x-custom-button>
         <!-- The only way to do great work is to love what you do. - Steve Jobs -->
         <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
             @foreach ($notes as $note)
@@ -13,7 +21,7 @@
                                 <span class="text-gray-800">{{ $note->user->name }}</span>
                                 <small class="ml-2 text-sm text-gray-600 note_btn">{{ $note->created_at->format('j M Y, g:i a') }}</small>
                                 <a href="{{route('note.show', $note)}}" class="note_btn">
-                                    <small class="text-sm text-gray-600 note_link"> - {{__('View')}}</small>
+                                    <small class="text-sm text-gray-600 note_link"> - {{__('瀏覽筆記')}}</small>
                                 </a>
                                 @unless ($note->created_at->eq($note->updated_at))
                                     <small class="text-sm text-gray-600"> - {{__('Edit')}}</small>
