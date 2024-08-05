@@ -19,8 +19,14 @@ class AvatarController extends Controller
         //     // 'avatar'=> ['required', 'image']
         // ]);
 
-        dd($request->all());
-        dd($request->input('_token'));
+          $path = $request->file('avatar')->store('avatars', 'public');
+          auth()->user()->update(['avatar' => $path]);
+        //   auth()->user()->update(['avatar' => storage_path($path)]);
+        //   dd(auth()->user());
+        // dd($request->all());
+        // dd($request->input('_token'));
+
+
 
         // $note->update($data);
 
