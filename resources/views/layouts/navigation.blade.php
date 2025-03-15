@@ -21,6 +21,12 @@
                     <x-nav-link :href="route('note.index')" :active="request()->routeIs('note.index')">
                         {{ __('Note') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('openai.index')" :active="request()->routeIs('openai.index')">
+                        {{ __('OPEN AI') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('openai.index')" :active="request()->routeIs('openai.index')">
+                        {{ __('Chat GTP') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -78,6 +84,12 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('chirps.index')" :active="request()->routeIs('chirps.index')">
                 {{ __('Chirps') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('note.index')" :active="request()->routeIs('note.index')">
+                {{ __('Note') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('chirps.index')" :active="request()->routeIs('chirps.index')">
+                {{ __('OPEN AI') }}
             </x-responsive-nav-link>
         </div>
 

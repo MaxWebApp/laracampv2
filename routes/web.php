@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\Profile\AvatarController;
@@ -30,6 +31,15 @@ Route::resource('chirps', ChirpController::class)
     ->only(['index', 'store', 'edit', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
+
+//OpenAI
+Route::resource('openai', ChatController::class)
+    ->only(['index', 'store']);
+
+//Chat GPT
+Route::resource('gpt', ChatController::class)
+    ->only(['show']);
+
 require __DIR__.'/auth.php';
 
 
@@ -42,5 +52,6 @@ require __DIR__.'/auth.php';
 // Route::put('/note/{id}', [NoteController::class, 'update'])->name('note.update');
 // Route::delete('/note/{id}', [NoteController::class, 'destory'])->name('note.destory');
 Route::resource('note', NoteController::class);
+
 
 
