@@ -24,7 +24,7 @@
                     <x-nav-link :href="route('openai.index')" :active="request()->routeIs('openai.index')">
                         {{ __('OPEN AI') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('openai.index')" :active="request()->routeIs('openai.index')">
+                    <x-nav-link :href="route('gpt.index')" :active="request()->routeIs('gpt.index')">
                         {{ __('Chat GTP') }}
                     </x-nav-link>
                 </div>

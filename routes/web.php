@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AiDrawController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\NoteController;
@@ -33,12 +34,12 @@ Route::resource('chirps', ChirpController::class)
 
 
 //OpenAI
-Route::resource('openai', ChatController::class)
+Route::resource('gpt', ChatController::class)
     ->only(['index', 'store']);
 
 //Chat GPT
-Route::resource('gpt', ChatController::class)
-    ->only(['show']);
+Route::resource('openai', AiDrawController::class)
+    ->only(['index', 'store']);
 
 require __DIR__.'/auth.php';
 

@@ -20,11 +20,6 @@ class ChatController extends Controller
         return view('chat.index', [
             'chats' => Chat::with('user')->latest()->get(),
         ]);
-
-
-        return View('chirps.index', [
-            'chirps' => Chirp::with('user')->latest()->get(),
-        ]);
     }
 
     /**
@@ -64,7 +59,7 @@ class ChatController extends Controller
         $validated['message'] = $result->choices[0]->message->content;
         $request->user()->chats()->create($validated);
 
-        return redirect()->route('openai.index');
+        return redirect()->route('gpt.index');
     }
 
     /**

@@ -71,4 +71,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Chat::class);
     }
+
+    /**
+     * @return 一對多的關係
+     */
+    public function ai_draws(): HasMany
+    {
+        return $this->hasMany(Ai_draw::class);
+    }
 }
