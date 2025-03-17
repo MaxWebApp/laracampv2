@@ -4,6 +4,7 @@ use App\Http\Controllers\AiDrawController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\Profile\AvatarController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
@@ -26,6 +27,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/avatar', [AvatarController::class, 'update'])->name('profile.avatar');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::post('/logout', [LogoutController::class, 'web_logout'])
+    ->middleware(['web'])
+    ->name('logout');
+Route::post('/admin/logout', [LogoutController::class, 'admin_logout'])
+    ->middleware(['web'])
+    ->name('filament.admin.auth.logout');
+
+
 
 
 Route::resource('chirps', ChirpController::class)
