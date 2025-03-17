@@ -36,7 +36,7 @@
                                 <small class="ml-2 text-sm text-gray-600">by Chat GPT</small>
                             </div>
                         </div>
-                        <p class="mt-4 text-lg text-gray-900">{{ $chat->message }}</p>
+                        <p class="mt-4 text-lg text-gray-900">{!! Str::markdown($chat->message) !!}</p>
                     </div>
                 </div>
             @endforeach
