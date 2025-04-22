@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Filament\Widgets;
+
+use Filament\Widgets\ChartWidget;
+// use Filament\Widgets\ChartWidget\TrendValue;
+// use Filament\Widgets\ChartWidget\Trend;
+use Flowframe\Trend\Trend;
+use Flowframe\Trend\TrendValue;
+use App\Models\Treatment;
+
+
+class TreatmentsChart extends ChartWidget
+{
+    protected static ?string $heading = 'Treatments';
+
+    protected function getData(): array
+    {
+        $data = Trend::model(Treatment::class)
+            ->between(
+                start: now()->subYear(),
+                end: now(),
+            )
+            ->perMonth()
+            ->count();
+
+        return [
+            'datasets' => [
+                [
+                    'label' => 'Treatments',
+                    'data' => $data,
+                ],
+            ],
+            'labels' => $data->map(fn (TrendValue $value) => $value->date),
+        ];
+    }
+
+    protected function getType(): string
+    {
+        return 'line';
+    }
+}

@@ -80,6 +80,7 @@ class PatientResource extends Resource
                 ->options([
                     'cat' => 'Cat',
                     'dog' => 'Dog',
+                    'birds' => 'Birds',
                     'rabbit' => 'Rabbit',
                 ]),
             ])
