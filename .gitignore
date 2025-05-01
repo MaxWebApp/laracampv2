@@ -17,6 +17,7 @@ composer.lock
 third_party/
 
 # Ignore files and images upload by user
+cufiles/
 qrcode/
 certificate/
 
@@ -75,6 +76,7 @@ cache/
 /public/hot
 /public/storage
 /storage/*.key
+/storage/pail
 .phpactor.json
 .phpunit.result.cache
 Homestead.json
@@ -84,5 +86,7 @@ npm-debug.log
 yarn-error.log
 /.fleet
 /.idea
+/.nova
 /.vscode
+/.zed
 
