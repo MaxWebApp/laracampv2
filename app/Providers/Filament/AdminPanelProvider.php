@@ -37,7 +37,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Amber,
             ])
             // ->darkMode(false)
-            // ->viteTheme('resources/css/filament/admin/theme.css')
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -48,6 +48,7 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
             ])
+
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -59,18 +60,18 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
-            // ->plugins([
-            //     \Awcodes\Curator\CuratorPlugin::make()
-            //         ->label('Media')
-            //         ->pluralLabel('Media')
-            //         ->navigationIcon('heroicon-o-photo')
-            //         ->navigationGroup('Content')
-            //         ->navigationSort(3)
-            //         ->navigationCountBadge()
-            //         // ->registerNavigation(true)
-            //         ->defaultListView('grid' || 'list')
-            //         // ->resource(\App\Filament\Resources\CustomMediaResource::class)
-            // ])
+            ->plugins([
+                \Awcodes\Curator\CuratorPlugin::make()
+                    ->label('Media')
+                    ->pluralLabel('Media')
+                    ->navigationIcon('heroicon-o-photo')
+                    ->navigationGroup('Content')
+                    ->navigationSort(3)
+                    ->navigationCountBadge()
+                    // ->registerNavigation(true)
+                    ->defaultListView('grid' || 'list')
+                    // ->resource(\App\Filament\Resources\CustomMediaResource::class)
+            ])
             ;
     }
 
