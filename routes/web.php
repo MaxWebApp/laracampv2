@@ -8,12 +8,15 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\Profile\AvatarController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
+use App\Livewire\Pages\Home;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
+// Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
+Route::get("/", Home::class)->name('home');
 
-Route::view('/home', 'home');
+
+// Route::view('/home', 'home');
 
 
 Route::get('/dashboard', function () {
@@ -35,8 +38,6 @@ Route::post('/logout', [LogoutController::class, 'web_logout'])
 Route::post('/admin/logout', [LogoutController::class, 'admin_logout'])
     ->middleware(['web'])
     ->name('filament.admin.auth.logout');
-
-
 
 
 Route::resource('chirps', ChirpController::class)
