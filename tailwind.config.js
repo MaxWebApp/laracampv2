@@ -3,6 +3,7 @@ import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: 'class', // 使用 class 策略而非 media 策略
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
@@ -49,6 +50,10 @@ export default {
     ],
     // 如果您使用 daisyUI (Mary UI 有時依賴這個)
     daisyui: {
-        themes: ["light", "dark"],
+        themes: ["light", "dark"], // 預設主題，可以增加更多主題
+        darkTheme: "dark", // 預設深色主題名稱
+        base: true, // 啟用 DaisyUI 的基礎樣式
+        styled: true, // 啟用 DaisyUI 的組件樣式
+        utils: true, // 啟用 DaisyUI 的工具類
     },
 };
